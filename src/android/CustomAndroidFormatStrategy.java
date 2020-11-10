@@ -45,7 +45,7 @@ public class CustomAndroidFormatStrategy implements MediaFormatStrategy {
         outWidth = this.width;
         outHeight = this.height;
 
-        MediaFormat format = MediaFormat.createVideoFormat("video/avc", 640, 480);
+        MediaFormat format = MediaFormat.createVideoFormat("video/avc", 720, 480);
         format.setInteger(MediaFormat.KEY_BIT_RATE, mBitRate);
         format.setInteger(MediaFormat.KEY_FRAME_RATE, mFrameRate);
         format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 3);
