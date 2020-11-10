@@ -330,17 +330,7 @@ public class VideoEditor extends CordovaPlugin {
                     if (width > 0 || height > 0) {
                         int videoWidth = bitmap.getWidth();
                         int videoHeight = bitmap.getHeight();
-                        double aspectRatio = (double) videoWidth / (double) videoHeight;
-
-                        Log.d(TAG, "videoWidth: " + videoWidth);
-                        Log.d(TAG, "videoHeight: " + videoHeight);
-
-                        int scaleWidth = Double.valueOf(height * aspectRatio).intValue();
-                        int scaleHeight = Double.valueOf(scaleWidth / aspectRatio).intValue();
-
-                        Log.d(TAG, "scaleWidth: " + scaleWidth);
-                        Log.d(TAG, "scaleHeight: " + scaleHeight);
-
+                        
                         final Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, scaleWidth, scaleHeight, false);
                         bitmap.recycle();
                         bitmap = resizedBitmap;
