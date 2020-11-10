@@ -41,39 +41,9 @@ public class CustomAndroidFormatStrategy implements MediaFormatStrategy {
         int inWidth = inputFormat.getInteger(MediaFormat.KEY_WIDTH);
         int inHeight = inputFormat.getInteger(MediaFormat.KEY_HEIGHT);
         int inLonger, inShorter, outWidth, outHeight, outLonger;
-        double aspectRatio;
 
-        if (this.width >= this.height) {
-            outLonger = this.width;
-        } else {
-            outLonger = this.height;
-        }
-
-        if (inWidth >= inHeight) {
-            inLonger = inWidth;
-            inShorter = inHeight;
-
-        } else {
-            inLonger = inHeight;
-            inShorter = inWidth;
-
-        }
-
-        if (inLonger > outLonger && outLonger > 0) {
-            if (inWidth >= inHeight) {
-                aspectRatio = (double) inLonger / (double) inShorter;
-                outWidth = outLonger;
-                outHeight = Double.valueOf(outWidth / aspectRatio).intValue();
-
-            } else {
-                aspectRatio = (double) inLonger / (double) inShorter;
-                outHeight = outLonger;
-                outWidth = Double.valueOf(outHeight / aspectRatio).intValue();
-            }
-        } else {
-            outWidth = inWidth;
-            outHeight = inHeight;
-        }
+        outWidth = this.width;
+        outHeight = this.height;
 
         MediaFormat format = MediaFormat.createVideoFormat("video/avc", outWidth, outHeight);
         format.setInteger(MediaFormat.KEY_BIT_RATE, mBitRate);
