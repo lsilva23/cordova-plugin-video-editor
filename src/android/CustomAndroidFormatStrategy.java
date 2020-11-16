@@ -14,7 +14,7 @@ import net.ypresto.androidtranscoder.format.OutputFormatUnavailableException;
 public class CustomAndroidFormatStrategy implements MediaFormatStrategy {
 
     private static final String TAG = "CustomFormatStrategy";
-    private static final int DEFAULT_BITRATE = 8000000;
+    private static final int DEFAULT_BITRATE = 500000;
     private static final int DEFAULT_FRAMERATE = 30;
     private static final int DEFAULT_WIDTH = 0;
     private static final int DEFAULT_HEIGHT = 0;
@@ -45,7 +45,7 @@ public class CustomAndroidFormatStrategy implements MediaFormatStrategy {
         outWidth = this.width;
         outHeight = this.height;
 
-        MediaFormat format = MediaFormat.createVideoFormat("video/avc", 720, 480);
+        MediaFormat format = MediaFormat.createVideoFormat("video/avc", 480, 360);
         format.setInteger(MediaFormat.KEY_BIT_RATE, mBitRate);
         format.setInteger(MediaFormat.KEY_FRAME_RATE, mFrameRate);
         format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 3);
