@@ -146,14 +146,12 @@ public class VideoEditor extends CordovaPlugin {
         final boolean saveToLibrary = options.optBoolean("saveToLibrary", true);
         File mediaStorageDir;
 
-        if (saveToLibrary) {
-            mediaStorageDir = new File(
-                    appContext.getExternalFilesDir(null) + "/Movies",
-                    appName
-            );
+        /*if (saveToLibrary) {
+            mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), appName);
         } else {
             mediaStorageDir = new File(appContext.getExternalFilesDir(null).getAbsolutePath() + "/Android/data/" + cordova.getActivity().getPackageName() + "/files/files/videos");
-        }
+        }*/
+        mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), appName);
 
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
